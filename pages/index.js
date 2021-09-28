@@ -1,5 +1,5 @@
-import Container from "@mui/material/Container";
+import Home from "views/Home";
 
 export default function Index() {
-  return <Container maxWidth="sm"></Container>;
+  return <Home />;
 }
