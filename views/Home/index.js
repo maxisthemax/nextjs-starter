@@ -1,7 +1,6 @@
 //*lodash
 
 //*components
-import { ImagesCarousel } from "components/Images";
 
 //*material-ui
 import Box from "@mui/material/Box";
@@ -17,7 +16,6 @@ import Box from "@mui/material/Box";
 //*styles
 
 //*custom components
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 function Home() {
   //*define
@@ -34,16 +32,7 @@ function Home() {
 
   //*functions
 
-  return (
-    <Box key="imageCarousel_1" width="100%">
-      <ImagesCarousel
-        images={[
-          "https://source.unsplash.com/1416x800/?gaming%20pc",
-          "https://source.unsplash.com/1416x800/?gaming%20setup",
-        ]}
-      />
-    </Box>
-  );
+  return <Box></Box>;
 }
 
 export default Home;
