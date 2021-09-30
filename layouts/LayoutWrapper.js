@@ -1,9 +1,9 @@
 //*lodash
 
 //*components
+import Main from "layouts/Main";
 
 //*material-ui
-import Box from "@mui/material/Box";
 
 //*assets
 
@@ -13,11 +13,11 @@ import Box from "@mui/material/Box";
 
 //*helpers
 
-//*styles
+//*style
 
 //*custom components
 
-function Home() {
+function LayoutWrapper({ children }) {
   //*define
 
   //*states
@@ -32,7 +32,7 @@ function Home() {
 
   //*functions
 
-  return <Box>Home</Box>;
+  return <Main>{children}</Main>;
 }
 
-export default Home;
+export default LayoutWrapper;

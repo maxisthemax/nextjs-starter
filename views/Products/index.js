@@ -17,7 +17,7 @@ import Box from "@mui/material/Box";
 
 //*custom components
 
-function Home() {
+function Products() {
   //*define
 
   //*states
@@ -32,7 +32,7 @@ function Home() {
 
   //*functions
 
-  return <Box>Home</Box>;
+  return <Box>Products</Box>;
 }
 
-export default Home;
+export default Products;
