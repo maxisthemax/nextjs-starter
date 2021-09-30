@@ -93,7 +93,7 @@ function MainDrawer({ drawerWidth }) {
             )}
 
             {routes.map(({ label, icon, href }) => (
-              <DrawerItem label={label} icon={icon} href={href} />
+              <DrawerItem key={href} label={label} icon={icon} href={href} />
             ))}
           </List>
         </Box>
