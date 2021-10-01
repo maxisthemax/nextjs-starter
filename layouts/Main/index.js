@@ -1,4 +1,3 @@
-import { useRef } from "react";
 //*lodash
 
 //*components
@@ -33,7 +32,6 @@ function Main({ children }) {
   //*let
 
   //*ref
-  const drawerRef = useRef();
 
   //*useEffect
 
@@ -41,11 +39,8 @@ function Main({ children }) {
 
   return (
     <Box sx={{ display: "flex" }}>
-      <MainAppBar
-        handleOpenDrawer={drawerRef?.current?.handleOpenDrawer}
-        handleCloseDrawer={drawerRef?.current?.handleCloseDrawer}
-      />
-      <MainDrawer drawerWidth={drawerWidth} ref={drawerRef} />
+      <MainAppBar />
+      <MainDrawer drawerWidth={drawerWidth} />
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Toolbar />
         <div>{children}</div>
