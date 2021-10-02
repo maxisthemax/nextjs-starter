@@ -14,6 +14,7 @@ import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
 import { CustomIcon } from "components/Icons";
 import LayoutWrapper from "layouts/LayoutWrapper";
+import { SWRConfig } from "swr";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -31,25 +32,31 @@ export default function MyApp(props) {
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
       <ThemeProvider theme={theme}>
-        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-        <Provider store={store}>
-          <SnackbarProvider
-            maxSnack={3}
-            ref={notistackRef}
-            action={(key) => (
-              <IconButton onClick={onClickDismiss(key)}>
-                <CustomIcon icon="close" color="white" />
-              </IconButton>
-            )}
-          >
-            <LayoutWrapper>
-              <Container maxWidth="xl" disableGutters>
-                <Component {...pageProps} />
-              </Container>
-            </LayoutWrapper>
-          </SnackbarProvider>
-        </Provider>
+        <SWRConfig
+          value={{
+            fetcher: (resource, init) =>
+              fetch(resource, init).then((res) => res.json()),
+          }}
+        >
+          <Provider store={store}>
+            <SnackbarProvider
+              maxSnack={3}
+              ref={notistackRef}
+              action={(key) => (
+                <IconButton onClick={onClickDismiss(key)}>
+                  <CustomIcon icon="close" color="white" />
+                </IconButton>
+              )}
+            >
+              <LayoutWrapper>
+                <Container maxWidth="xl" disableGutters>
+                  <Component {...pageProps} />
+                </Container>
+              </LayoutWrapper>
+            </SnackbarProvider>
+          </Provider>
+        </SWRConfig>
       </ThemeProvider>
     </CacheProvider>
   );

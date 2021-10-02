@@ -2,15 +2,8 @@ import PropsTypes from "prop-types";
 
 //*material-ui
 import Icon from "@mui/material/Icon";
-import { makeStyles } from "@mui/styles";
 
 //*style
-const useStyles = makeStyles(() => ({
-  icon: {
-    display: "flex",
-    alignItems: "center",
-  },
-}));
 
 function CustomIcon({
   active = true,
@@ -21,17 +14,17 @@ function CustomIcon({
   height = "auto",
 }) {
   //*define
-  const classes = useStyles();
 
   return (
     <Icon
-      className={classes.icon}
       fontSize={size}
       style={{
         width: width,
         height: height,
         color: color ? color : "",
         opacity: active ? "1" : "0.4",
+        display: "flex",
+        alignItems: "center",
       }}
       color={active ? "primary" : "action"}
     >
